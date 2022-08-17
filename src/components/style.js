@@ -1,4 +1,5 @@
 import styled, {createGlobalStyle} from "styled-components";
+import {Link} from "react-router-dom"
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -10,6 +11,27 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: #8EB19D;
     }
+
+    ::selection{
+        color: #F0D2D1;
+        background-color: #F0D2D1;
+    }        
+    ::-webkit-scrollbar-track {
+        background-color: #F0D2D1;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #D9DD92;
+    }
+`
+export const Busca = styled.div`
+    display: flex;
+    border: solid;
+    align-items: center;
+    width: 10%;
+    justify-content: space-between;
 `
 
 export const H1 = styled.h1`
@@ -25,7 +47,6 @@ export const DivHeader = styled.div`
 
 export const Nav = styled.nav`
     height: 20vh;
-    border: solid red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,4 +93,13 @@ export const Titulo = styled.h2`
 
 export const Descricao = styled.p`
     text-align: justify;
+`
+
+export const LinkS = styled(Link)`
+    text-decoration: none;
+    color: #F0D2D1;
+`
+
+export const Lupa = styled.img`
+    width: 1vw;
 `
