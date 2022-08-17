@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import Movies from "./services/movies.js"
+// import Movies from "./services/movies.js"
+import Header from "./components/header.js"
 
 export default class App extends Component {
   render(){
     return(
       <div>
-        <Movies/>
+        <Header />
       </div>
     )
   }

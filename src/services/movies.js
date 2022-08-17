@@ -2,8 +2,9 @@
 // requisição: https://api.themoviedb.org/3/movie/550?api_key=3ec3b78e7bcb7df233c8d24e81fd8592
 // https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1
 
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
+import * as S from "../components/style.js"
 
 const FilmesApi = axios.create({
     baseURL: "https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
@@ -14,7 +15,7 @@ export default class Movies extends Component {
         movies: []
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getMovies()
     }
 
@@ -22,11 +23,11 @@ export default class Movies extends Component {
         const resposta = await FilmesApi.get()
         console.log(resposta)
         const allFilmes = resposta.data.results.map((item) => {
-            return{
+            return {
                 // nome: item.original_title,
                 // sinopse: item.overview,
                 ...item,
-                nome: item.overview
+                image: `https://image.tmdb.org/t/p/w500${item.poster_path}`
             }
         })
         this.setState({
@@ -34,16 +35,21 @@ export default class Movies extends Component {
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
+                <S.GlobalStyle />
                 {this.state.movies.map((item, index) => (
-                    <ul key={index}>
-                        {/* <li>{item.nome}</li> */}
-                        {/* <li>{item.sinopse}</li> */}
-                        <li>{item.original_title}</li>
-                        <li>{item.overview}</li>
-                    </ul>
+                    <div key={index}>
+                        <S.FilmesUl>
+                            <S.TituloDescricao>
+                                <S.Titulo>{item.title}</S.Titulo>
+                                <S.Descricao>{`Sinopse: ${item.overview}`}</S.Descricao>                        
+                            </S.TituloDescricao>
+                            <S.Poster src={item.image} alt="" />
+                        </S.FilmesUl>
+                    </div>
+
                 ))}
             </div>
         )
