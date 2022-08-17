@@ -1,16 +1,12 @@
-// key: 3ec3b78e7bcb7df233c8d24e81fd8592
-// requisição: https://api.themoviedb.org/3/movie/550?api_key=3ec3b78e7bcb7df233c8d24e81fd8592
-// https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1
-
 import React, { Component } from "react";
 import axios from "axios";
 import * as S from "../components/style.js"
 
 const FilmesApi = axios.create({
-    baseURL: "https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
+    baseURL: "https://api.themoviedb.org/3/movie/now_playing?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
 })
 
-export default class Movies extends Component {
+export default class NowPlaying extends Component {
     state = {
         movies: []
     }

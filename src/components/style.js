@@ -41,7 +41,7 @@ export const Ul = styled.ul`
 `
 export const Li = styled.li`
     list-style: none;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-decoration: none;
     color: #F0D2D1;
 `
@@ -52,7 +52,7 @@ export const FilmesUl = styled.ul`
     justify-content: space-evenly;
     align-items: center;
     height: 40vh;
-    border: solid;
+    border-bottom: solid 5px;
 `
 
 export const Poster = styled.img`
@@ -61,13 +61,11 @@ export const Poster = styled.img`
 `
 
 export const TituloDescricao = styled.div`
-    border: solid;
-    width: 40%;
+    width: 40%;    
 `
 
 export const Titulo = styled.h2`
     width: 100%;
-    border: solid;
     text-align: center;
     color: #F6EFA6;
 `

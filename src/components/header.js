@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Home from "../services/home.js"
 import Movies from '../services/movies.js'
+import Series from '../services/TopRated.js'
+import NowPlaying from '../services/NowPlaying.js'
+import UpComing from '../services/upcoming.js'
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 import * as S from "./style.js"
 
@@ -18,18 +21,26 @@ export default class main extends Component {
                         <S.Li>
                             <Link to="/">Home</Link>
                         </S.Li>
-                        <Link to="/movies">
+                        <Link to="/popular">
                             <S.Li>Popular Movies</S.Li>
-                        </Link>
-                        
+                        </Link>                        
                         <S.Li>
-                            <Link to="/series">Series</Link>
+                            <Link to="/rated">Rated Movies</Link>
+                        </S.Li>
+                        <S.Li>
+                            <Link to="/NowPlaying">Now Playing Movies</Link>
+                        </S.Li>
+                        <S.Li>
+                            <Link to="/UpComing">UpComing Movies</Link>
                         </S.Li>
                     </S.Ul>
                 </S.Nav>
                 <Routes>
                     <Route path='/' element={<Home />}/>
-                    <Route path='/movies' element={<Movies/>} />
+                    <Route path='/popular' element={<Movies/>} />
+                    <Route path='/rated' element={<Series/>} />
+                    <Route path='/NowPlaying' element={<NowPlaying/>} />
+                    <Route path='/UpComing' element={<UpComing/>} />
                 </Routes>
             </BrowserRouter>
 
