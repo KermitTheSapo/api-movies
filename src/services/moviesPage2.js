@@ -1,12 +1,18 @@
+// key: 3ec3b78e7bcb7df233c8d24e81fd8592
+// requisição: https://api.themoviedb.org/3/movie/550?api_key=3ec3b78e7bcb7df233c8d24e81fd8592
+// https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1
+
 import React, { Component } from "react";
 import axios from "axios";
 import * as S from "../components/style.js"
+import * as R from "react-router-dom"
+import Page1 from "./movies"
 
 const FilmesApi = axios.create({
-    baseURL: "https://api.themoviedb.org/3/movie/top_rated?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
+    baseURL: "https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=2"
 })
 
-export default class TopRated extends Component {
+export default class Movies extends Component {
     state = {
         movies: []
     }
@@ -35,8 +41,8 @@ export default class TopRated extends Component {
             <div>
                 <S.GlobalStyle />
                 <S.Introducao>
-                    <S.Principal>Filmes Mais votados</S.Principal>
-                    <S.Paragrafo>A seguir um top 20 dos filmes mais votados</S.Paragrafo>
+                    <S.Principal>Filmes Populares</S.Principal>
+                    <S.Paragrafo>A seguir um top 20 dos filmes mais populares atualmente</S.Paragrafo>
                 </S.Introducao>
                 {this.state.movies.map((item, index) => (
                     <div key={index}>
@@ -61,14 +67,24 @@ export default class TopRated extends Component {
                                 {/* <S.Nota>{`Nota: ${item.vote_average}`}</S.Nota> */}
                                 <S.Sinopse>
                                     <h3>Sinopse: </h3>
-                                    <S.Sinopse>{item.overview}</S.Sinopse>
+                                    <S.SinopseP>{item.overview}</S.SinopseP>
                                 </S.Sinopse>
                                 {/* <S.Descricao>{`Sinopse: ${item.overview}`}</S.Descricao> */}
-                            </S.TituloDescricao>                          
+                            </S.TituloDescricao>
                         </S.FilmesUl>
                     </div>
+                    
 
                 ))}
+                <R.BrowserRouter>
+                <S.LinkS to="/page1">Home</S.LinkS>
+                <R.Routes>
+                    <R.Route path='/page1' element={<Page1 />}/>
+                </R.Routes>
+                    <S.Contador>
+                        <button>1</button>
+                    </S.Contador>
+                </R.BrowserRouter>
             </div>
         )
     }

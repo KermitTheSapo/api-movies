@@ -18,25 +18,29 @@ export default class main extends Component {
                 <S.H1>BatataFlix</S.H1>
                 <S.Busca>
                     <S.Lupa src={Lupa} alt="aaaa" />
-                    <input type="text" />
+                    <S.Input placeholder='Buscar' type="text" />
                 </S.Busca>
             </S.DivHeader>
                 <S.Nav>
                     <S.Ul>
                         <S.Li>
                             <S.LinkS to="/">Home</S.LinkS>
+                            <S.Borda></S.Borda>
                         </S.Li>
                         <S.Li>
-                            <S.LinkS to="/popular">Popular Movies</S.LinkS>
+                            <S.LinkS to="/popular">Filmes Populares</S.LinkS>
+                            <S.Borda></S.Borda>
                         </S.Li>                       
                         <S.Li>
-                            <S.LinkS to="/rated">Rated Movies</S.LinkS>
+                            <S.LinkS to="/rated">Filmes mais votados</S.LinkS>
+                            <S.Borda></S.Borda>
                         </S.Li>
                         <S.Li>
-                            <S.LinkS to="/NowPlaying">Now Playing Movies</S.LinkS>
+                            <S.LinkS to="/NowPlaying">Filmes em reprodução</S.LinkS>
+                            <S.Borda></S.Borda>
                         </S.Li>
                         <S.Li>
-                            <S.LinkS to="/UpComing">UpComing Movies</S.LinkS>
+                            <S.LinkS to="/UpComing">Próximos Filmes</S.LinkS>
                         </S.Li>
                     </S.Ul>
                 </S.Nav>

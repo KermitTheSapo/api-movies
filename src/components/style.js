@@ -9,37 +9,45 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: #8EB19D;
+        background-color: #0F110C;
     }
 
     ::selection{
-        color: #F0D2D1;
-        background-color: #F0D2D1;
+        color: white;
+        background-color: black;
     }        
     ::-webkit-scrollbar-track {
-        background-color: #F0D2D1;
+        background-color: white;
     }
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 15px;
     }
     ::-webkit-scrollbar-thumb {
-        background: #D9DD92;
+        background: #612940;
     }
 `
 export const Busca = styled.div`
     display: flex;
-    border: solid;
     align-items: center;
     width: 10%;
     justify-content: space-between;
+    height: 80%;
 `
 
 export const H1 = styled.h1`
-    color: #F3C654;
+    color: #F7D08A;
+    cursor: pointer;
 `
+
+export const Input = styled.input`
+    background-color:#F7D08A;
+    height: 100%;
+    border-radius: 10px;
+`
+
 export const DivHeader = styled.div`
     height: 5vh;
-    background-color: #66B3BA;
+    background-color: #612940;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -58,13 +66,16 @@ export const Ul = styled.ul`
     justify-content: space-evenly;
     align-items: center;
     border-radius: 15px;
-    background-color: #42CAFD;
+    background-color: #DE1A1A;
+    height: 8vh;
 `
 export const Li = styled.li`
     list-style: none;
     font-size: 1.5vw;
     text-decoration: none;
-    color: #F0D2D1;
+    color: #ACBED8;
+    display: flex;
+    align-items: center;
 `
 
 export const FilmesUl = styled.ul`
@@ -72,8 +83,8 @@ export const FilmesUl = styled.ul`
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    height: 40vh;
-    border-bottom: solid 5px;
+    height: 50vh;
+    border-bottom: solid 5px #880000;
 `
 
 export const Poster = styled.img`
@@ -88,18 +99,112 @@ export const TituloDescricao = styled.div`
 export const Titulo = styled.h2`
     width: 100%;
     text-align: center;
-    color: #F6EFA6;
+    color: #F7D08A;
 `
+
 
 export const Descricao = styled.p`
     text-align: justify;
+    color: #ACBED8;
 `
 
 export const LinkS = styled(Link)`
+    &:hover{
+        color: #F7D08A;
+        text-shadow: 1px 1px black;
+    }
+
     text-decoration: none;
     color: #F0D2D1;
 `
 
 export const Lupa = styled.img`
     width: 1vw;
+`
+
+export const Borda = styled.div`
+    width: 2px;
+    height: 50px;
+    margin-left: 10px;
+    border: solid 1px black;
+`
+
+export const Introducao = styled.div`
+    border: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`
+
+export const Contador = styled.div`
+    height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+`
+
+export const Principal = styled.h2`
+    color: #F7D08A;
+`
+
+export const Paragrafo = styled.p`
+    color: #ACBED8;
+`
+
+export const DivHome = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 50%;
+    align-self: center;
+    height: 100%;
+
+    img {
+        margin-right: 10vw;
+    }
+`
+export const Engloba = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+`
+
+export const Explicacao = styled.p`
+    color: #ACBED8;
+    width: 80%;
+    text-align: center;
+`
+
+export const BatataFlix = styled.h2`
+    color: #F7D08A;
+`
+
+export const Apresentacao = styled.p`
+    color: #ACBED8;
+`
+
+export const Lancamento = styled.h4`
+    color: #F7D08A;
+`
+export const Nota = styled.h4`
+    color: #F7D08A;
+`
+
+export const DivTituloOriginal = styled.div`
+    display: flex;
+    color: #F7D08A;
+    align-items: center;
+`
+export const TituloOriginal = styled.h4`
+    text-align: center;
+    color: #ACBED8;
+`
+
+export const Sinopse = styled.div`
+    color: #F7D08A;
+`
+export const SinopseP = styled.p`
+    color: #ACBED8;
 `
