@@ -8,7 +8,8 @@ const FilmesApi = axios.create({
 
 export default class UpComing extends Component {
     state = {
-        movies: []
+        movies: [],
+        FilterMovies: []
     }
 
     componentDidMount() {
@@ -26,7 +27,22 @@ export default class UpComing extends Component {
             }
         })
         this.setState({
-            movies: allFilmes
+            movies: allFilmes,
+            FilterMovies: allFilmes
+        })
+    }
+    handleChange = (event) =>{
+        const ListaFiltrada = this.state.movies.filter((item) => {
+            if(item.title.toLowerCase().includes(event.target.value.toLowerCase())){
+                return  true
+            } else if (item.original_title.toLowerCase().includes(event.target.value.toLowerCase())) {
+                return true
+            } else {
+                return ""
+            }
+        })
+        this.setState({
+            FilterMovies:ListaFiltrada
         })
     }
 
@@ -37,8 +53,9 @@ export default class UpComing extends Component {
                 <S.Introducao>
                     <S.Principal>Próximos Filmes</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos Filmes em Breve</S.Paragrafo>
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
                 </S.Introducao>
-                {this.state.movies.map((item, index) => (
+                {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>
                         <S.FilmesUl>
                             <S.Poster src={item.image} alt="" />

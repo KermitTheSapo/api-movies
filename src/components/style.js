@@ -26,23 +26,9 @@ export const GlobalStyle = createGlobalStyle`
         background: #612940;
     }
 `
-export const Busca = styled.div`
-    display: flex;
-    align-items: center;
-    width: 10%;
-    justify-content: space-between;
-    height: 80%;
-`
-
 export const H1 = styled.h1`
     color: #F7D08A;
     cursor: pointer;
-`
-
-export const Input = styled.input`
-    background-color:#F7D08A;
-    height: 100%;
-    border-radius: 10px;
 `
 
 export const DivHeader = styled.div`
@@ -58,6 +44,7 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 `
 
 export const Ul = styled.ul`
@@ -116,10 +103,6 @@ export const LinkS = styled(Link)`
 
     text-decoration: none;
     color: #F0D2D1;
-`
-
-export const Lupa = styled.img`
-    width: 1vw;
 `
 
 export const Borda = styled.div`
@@ -203,8 +186,21 @@ export const TituloOriginal = styled.h4`
 `
 
 export const Sinopse = styled.div`
-    color: #F7D08A;
+    color: #F7D08A; 
 `
 export const SinopseP = styled.p`
     color: #ACBED8;
+`
+
+export const Pesquisa = styled.input`
+    width: 20%;
+    background-color: grey;
+    color: white;
+    height: 5vh;
+    text-align: center;
+    font-size: 1.5vw;
+    &::placeholder{
+        color: white;
+        font-size: 1vw;
+    }
 `

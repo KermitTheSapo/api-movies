@@ -3,10 +3,10 @@ import axios from "axios";
 import * as S from "../components/style.js"
 
 const FilmesApi = axios.create({
-    baseURL: "https://api.themoviedb.org/3/movie/top_rated?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
+    baseURL: "https://api.themoviedb.org/3/trending/all/day?api_key=3ec3b78e7bcb7df233c8d24e81fd8592"
 })
 
-export default class TopRated extends Component {
+export default class Movies extends Component {
     state = {
         movies: [],
         FilterMovies: []
@@ -33,8 +33,12 @@ export default class TopRated extends Component {
     }
     handleChange = (event) =>{
         const ListaFiltrada = this.state.movies.filter((item) => {
-            if(item.title.toLowerCase().includes(event.target.value.toLowerCase())){
+            if(item.name.toLowerCase().includes(event.target.value.toLowerCase())){
                 return  true
+            } else if (item.original_name.toLowerCase().includes(event.target.value.toLowerCase())) {
+                return true
+            } else if (item.title.toLowerCase().includes(event.target.value.toLowerCase())) {
+                return true
             } else if (item.original_title.toLowerCase().includes(event.target.value.toLowerCase())) {
                 return true
             } else {
@@ -51,8 +55,8 @@ export default class TopRated extends Component {
             <div>
                 <S.GlobalStyle />
                 <S.Introducao>
-                    <S.Principal>Filmes Mais votados</S.Principal>
-                    <S.Paragrafo>A seguir um top 20 dos filmes mais votados</S.Paragrafo>
+                    <S.Principal>Trending</S.Principal>
+                    <S.Paragrafo>A seguir um top 20 dos filmes e series em trending atualmente</S.Paragrafo>
                     <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
@@ -60,17 +64,13 @@ export default class TopRated extends Component {
                         <S.FilmesUl>
                             <S.Poster src={item.image} alt="" />
                             <S.TituloDescricao>
+                                <S.Titulo>{item.name}</S.Titulo>
                                 <S.Titulo>{item.title}</S.Titulo>
                                 <S.DivTituloOriginal>
-                                    <h3>Titulo Original: </h3>
-                                    <S.TituloOriginal>{item.original_title}</S.TituloOriginal>
+                                    <h3>Popularidade: </h3>
+                                    <S.TituloOriginal>{item.popularity}</S.TituloOriginal>
+                                    <S.TituloOriginal>pessoas</S.TituloOriginal>
                                 </S.DivTituloOriginal>
-                                {/* <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal> */}
-                                <S.DivTituloOriginal>
-                                    <h3>Data de Lançamento: </h3>
-                                    <S.TituloOriginal>{item.release_date}</S.TituloOriginal>
-                                </S.DivTituloOriginal>
-                                {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>
                                     <h3>Nota: </h3>
                                     <S.TituloOriginal>{item.vote_average}</S.TituloOriginal>
@@ -78,13 +78,12 @@ export default class TopRated extends Component {
                                 {/* <S.Nota>{`Nota: ${item.vote_average}`}</S.Nota> */}
                                 <S.Sinopse>
                                     <h3>Sinopse: </h3>
-                                    <S.Sinopse>{item.overview}</S.Sinopse>
+                                    <S.SinopseP>{item.overview}</S.SinopseP>
                                 </S.Sinopse>
                                 {/* <S.Descricao>{`Sinopse: ${item.overview}`}</S.Descricao> */}
-                            </S.TituloDescricao>                          
+                            </S.TituloDescricao>
                         </S.FilmesUl>
                     </div>
-
                 ))}
             </div>
         )

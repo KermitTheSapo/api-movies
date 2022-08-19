@@ -12,7 +12,8 @@ const FilmesApi = axios.create({
 
 export default class Movies extends Component {
     state = {
-        movies: []
+        movies: [],
+        FilterMovies: []
     }
 
     componentDidMount() {
@@ -30,7 +31,22 @@ export default class Movies extends Component {
             }
         })
         this.setState({
-            movies: allFilmes
+            movies: allFilmes,
+            FilterMovies: allFilmes
+        })
+    }
+    handleChange = (event) =>{
+        const ListaFiltrada = this.state.movies.filter((item) => {
+            if(item.title.toLowerCase().includes(event.target.value.toLowerCase())){
+                return  true
+            } else if (item.original_title.toLowerCase().includes(event.target.value.toLowerCase())) {
+                return true
+            } else {
+                return ""
+            }
+        })
+        this.setState({
+            FilterMovies:ListaFiltrada
         })
     }
 
@@ -41,8 +57,9 @@ export default class Movies extends Component {
                 <S.Introducao>
                     <S.Principal>Filmes Populares</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos filmes mais populares atualmente</S.Paragrafo>
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
                 </S.Introducao>
-                {this.state.movies.map((item, index) => (
+                {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>
                         <S.FilmesUl>
                             <S.Poster src={item.image} alt="" />
@@ -65,7 +82,7 @@ export default class Movies extends Component {
                                 {/* <S.Nota>{`Nota: ${item.vote_average}`}</S.Nota> */}
                                 <S.Sinopse>
                                     <h3>Sinopse: </h3>
-                                    <S.Sinopse>{item.overview}</S.Sinopse>
+                                    <S.SinopseP>{item.overview}</S.SinopseP>
                                 </S.Sinopse>
                                 {/* <S.Descricao>{`Sinopse: ${item.overview}`}</S.Descricao> */}
                             </S.TituloDescricao>
