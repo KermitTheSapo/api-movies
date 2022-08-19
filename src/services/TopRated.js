@@ -53,7 +53,7 @@ export default class TopRated extends Component {
                 <S.Introducao>
                     <S.Principal>Filmes Mais votados</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos filmes mais votados</S.Paragrafo>
-                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} autoFocus/>
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>

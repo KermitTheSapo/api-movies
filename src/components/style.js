@@ -49,16 +49,16 @@ export const Nav = styled.nav`
 
 export const Ul = styled.ul`
     display: flex;
-    width: 60%;
+    width: 80%;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 15px;
     background-color: #DE1A1A;
-    height: 8vh;
+    height: 5vh;
 `
 export const Li = styled.li`
     list-style: none;
-    font-size: 1.5vw;
+    font-size: 1vw;
     text-decoration: none;
     color: #ACBED8;
     display: flex;
@@ -107,7 +107,7 @@ export const LinkS = styled(Link)`
 
 export const Borda = styled.div`
     width: 2px;
-    height: 50px;
+    height: 4.5vh;
     margin-left: 10px;
     border: solid 1px black;
 `
@@ -183,6 +183,12 @@ export const DivTituloOriginal = styled.div`
 export const TituloOriginal = styled.h4`
     text-align: center;
     color: #ACBED8;
+`
+
+export const Data = styled.h4`
+    text-align: center;
+    color: #ACBED8;
+    /* transform: scale(-1,1) */
 `
 
 export const Sinopse = styled.div`

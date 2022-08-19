@@ -35,9 +35,12 @@ export default class Movies extends Component {
             FilterMovies: allFilmes
         })
     }
+
+
+    
     handleChange = (event) =>{
         const ListaFiltrada = this.state.movies.filter((item) => {
-            if(item.title.toLowerCase().includes(event.target.value.toLowerCase())){
+            if(item.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(event.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ""))){
                 return  true
             } else if (item.original_title.toLowerCase().includes(event.target.value.toLowerCase())) {
                 return true
@@ -57,7 +60,7 @@ export default class Movies extends Component {
                 <S.Introducao>
                     <S.Principal>Filmes Populares</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos filmes mais populares atualmente</S.Paragrafo>
-                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} autoFocus />
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>
@@ -65,14 +68,16 @@ export default class Movies extends Component {
                             <S.Poster src={item.image} alt="" />
                             <S.TituloDescricao>
                                 <S.Titulo>{item.title}</S.Titulo>
-                                <S.DivTituloOriginal>
+                                {/* <S.DivTituloOriginal>
                                     <h3>Titulo Original: </h3>
                                     <S.TituloOriginal>{item.original_title}</S.TituloOriginal>
-                                </S.DivTituloOriginal>
-                                {/* <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal> */}
+                                </S.DivTituloOriginal> */}
+                                <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal>
                                 <S.DivTituloOriginal>
                                     <h3>Data de Lançamento: </h3>
-                                    <S.TituloOriginal>{item.release_date}</S.TituloOriginal>
+                                    {/* <S.TituloOriginal></S.TituloOriginal> */}
+                                    {/* <S.Data>{item.release_date}</S.Data> */}
+                                    <S.Data>{item.release_date.replace(/-/g, " ").split(" ").reverse().join("/")}</S.Data>
                                 </S.DivTituloOriginal>
                                 {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>

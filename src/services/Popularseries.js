@@ -53,7 +53,7 @@ export default class Movies extends Component {
                 <S.Introducao>
                     <S.Principal>Series Populares</S.Principal>
                     <S.Paragrafo>A seguir um top 20 das Series mais populares atualmente</S.Paragrafo>
-                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} autoFocus/>
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>

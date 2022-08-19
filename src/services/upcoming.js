@@ -53,7 +53,7 @@ export default class UpComing extends Component {
                 <S.Introducao>
                     <S.Principal>Próximos Filmes</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos Filmes em Breve</S.Paragrafo>
-                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} autoFocus />
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>

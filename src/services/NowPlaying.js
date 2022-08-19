@@ -53,7 +53,7 @@ export default class NowPlaying extends Component {
                 <S.Introducao>
                     <S.Principal>Filmes Em Reprodução</S.Principal>
                     <S.Paragrafo>A seguir um top 20 dos filmes em reprodução atualmente</S.Paragrafo>
-                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} />
+                    <S.Pesquisa placeholder="Procure pelo seu filme" type="text" onChange={this.handleChange} autoFocus/>
                 </S.Introducao>
                 {this.state.FilterMovies.map((item, index) => (
                     <div key={index}>
