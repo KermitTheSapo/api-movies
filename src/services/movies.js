@@ -68,28 +68,22 @@ export default class Movies extends Component {
                             <S.Poster src={item.image} alt="" />
                             <S.TituloDescricao>
                                 <S.Titulo>{item.title}</S.Titulo>
-                                {/* <S.DivTituloOriginal>
-                                    <h3>Titulo Original: </h3>
-                                    <S.TituloOriginal>{item.original_title}</S.TituloOriginal>
-                                </S.DivTituloOriginal> */}
-                                <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal>
                                 <S.DivTituloOriginal>
-                                    <h3>Data de Lançamento: </h3>
-                                    {/* <S.TituloOriginal></S.TituloOriginal> */}
-                                    {/* <S.Data>{item.release_date}</S.Data> */}
+                                    <S.H3>Titulo Original: </S.H3>
+                                    <S.TituloOriginal>{item.original_title}</S.TituloOriginal>
+                                </S.DivTituloOriginal>
+                                <S.DivTituloOriginal>
+                                    <S.H3>Data de Lançamento: </S.H3>
                                     <S.Data>{item.release_date.replace(/-/g, " ").split(" ").reverse().join("/")}</S.Data>
                                 </S.DivTituloOriginal>
-                                {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>
-                                    <h3>Nota: </h3>
+                                    <S.H3>Nota: </S.H3>
                                     <S.TituloOriginal>{item.vote_average}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
-                                {/* <S.Nota>{`Nota: ${item.vote_average}`}</S.Nota> */}
                                 <S.Sinopse>
-                                    <h3>Sinopse: </h3>
+                                    <S.H3>Sinopse: </S.H3>
                                     <S.SinopseP>{item.overview}</S.SinopseP>
                                 </S.Sinopse>
-                                {/* <S.Descricao>{`Sinopse: ${item.overview}`}</S.Descricao> */}
                             </S.TituloDescricao>
                         </S.FilmesUl>
                     </div>

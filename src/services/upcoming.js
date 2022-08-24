@@ -68,7 +68,7 @@ export default class UpComing extends Component {
                                 {/* <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal> */}
                                 <S.DivTituloOriginal>
                                     <h3>Data de Lançamento: </h3>
-                                    <S.TituloOriginal>{item.release_date}</S.TituloOriginal>
+                                    <S.Data>{item.release_date.replace(/-/g, " ").split(" ").reverse().join("/")}</S.Data>
                                 </S.DivTituloOriginal>
                                 {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>

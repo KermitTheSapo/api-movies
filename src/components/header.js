@@ -41,8 +41,9 @@ export default class main extends Component {
                         </S.Li>
                         <S.Li>
                             <S.LinkS to="/UpComing">Próximos Filmes</S.LinkS>
-                            <S.Borda></S.Borda>
-                        </S.Li>
+                        </S.Li>                         
+                    </S.Ul>
+                    <S.Ul>
                         <S.Li>
                             <S.LinkS to="/Trending">Trending</S.LinkS>
                             <S.Borda></S.Borda>
@@ -57,7 +58,7 @@ export default class main extends Component {
                         </S.Li>
                         <S.Li>
                             <S.LinkS to="/NowPlayingSeries">Series em reprodução</S.LinkS>
-                        </S.Li>   
+                        </S.Li> 
                     </S.Ul>
                 </S.Nav>
                 <R.Routes>

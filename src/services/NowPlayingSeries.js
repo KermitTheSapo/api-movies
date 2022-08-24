@@ -68,7 +68,7 @@ export default class Movies extends Component {
                                 {/* <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal> */}
                                 <S.DivTituloOriginal>
                                     <h3>Data de Lançamento: </h3>
-                                    <S.TituloOriginal>{item.first_air_date}</S.TituloOriginal>
+                                    <S.TituloOriginal>{item.first_air_date.replace(/-/g, " ").split(" ").reverse().join("/")}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
                                 {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>
