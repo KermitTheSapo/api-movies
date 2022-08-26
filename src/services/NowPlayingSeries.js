@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as S from "../components/style.js"
+import Youtube from "../imgs/youtube.png"
+
 
 const FilmesApi = axios.create({
     baseURL: "https://api.themoviedb.org/3/tv/on_the_air?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pr-BR&page=1"
@@ -23,7 +25,8 @@ export default class Movies extends Component {
                 // nome: item.original_title,
                 // sinopse: item.overview,
                 ...item,
-                image: `https://image.tmdb.org/t/p/w500${item.poster_path}`
+                image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                video: `https://www.youtube.com/results?search_query=Trailer+${item.name}`
             }
         })
         this.setState({
@@ -65,16 +68,18 @@ export default class Movies extends Component {
                                     <h3>Titulo Original: </h3>
                                     <S.TituloOriginal>{item.original_name}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
-                                {/* <S.TituloOriginal>{`Titulo Original: ${item.original_title}`}</S.TituloOriginal> */}
                                 <S.DivTituloOriginal>
                                     <h3>Data de Lançamento: </h3>
                                     <S.TituloOriginal>{item.first_air_date.replace(/-/g, " ").split(" ").reverse().join("/")}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
-                                {/* <S.Lancamento>{`Data de Lançamento: ${item.release_date}`}</S.Lancamento> */}
                                 <S.DivTituloOriginal>
                                     <h3>Nota: </h3>
                                     <S.TituloOriginal>{item.vote_average}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
+                                <S.DivVideo>
+                                    <h3>Assista o Trailer: </h3>
+                                    <a href={item.video} target="_Blank" rel="noreferrer"><S.YoutubeImg src={Youtube} alt="aaa"/></a>
+                                </S.DivVideo>
                             </S.TituloDescricao>
                         </S.FilmesUl>
                     </div>

@@ -120,6 +120,8 @@ export const FilmesUl = styled.ul`
 export const Poster = styled.img`
     height: 28.763vh;
     width: 9.376vw;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px #2e2c29;    
     @media (max-width: 1024px) {
         width: 15vw;
     }
@@ -331,6 +333,9 @@ export const SinopseP = styled.p`
     @media (max-width: 2560px) {
         font-size: 1.5em;
     }
+    @media (max-width: 1540px) {
+        font-size: 1em;
+    }
     @media (max-width: 1440px) {
         font-size: 1em;
     }
@@ -376,3 +381,12 @@ export const Pato = styled.img`
     }
     
 `
+
+export const DivVideo = styled.div`
+    color: #F7D08A;
+    display: flex;
+` 
+
+export const YoutubeImg = styled.img`
+    width: 2vw;
+` 

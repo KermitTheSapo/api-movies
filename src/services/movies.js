@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as S from "../components/style.js"
+import Youtube from "../imgs/youtube.png"
 
 const FilmesApi = axios.create({
     baseURL: "https://api.themoviedb.org/3/movie/popular?api_key=3ec3b78e7bcb7df233c8d24e81fd8592&language=pt-BR&page=1"
@@ -27,7 +28,8 @@ export default class Movies extends Component {
                 // nome: item.original_title,
                 // sinopse: item.overview,
                 ...item,
-                image: `https://image.tmdb.org/t/p/w500${item.poster_path}`
+                image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                video: `https://www.youtube.com/results?search_query=Trailer+${item.title}`
             }
         })
         this.setState({
@@ -80,6 +82,10 @@ export default class Movies extends Component {
                                     <S.H3>Nota: </S.H3>
                                     <S.TituloOriginal>{item.vote_average}</S.TituloOriginal>
                                 </S.DivTituloOriginal>
+                                <S.DivVideo>
+                                    <h3>Assista o Trailer: </h3>
+                                    <a href={item.video} target="_Blank" rel="noreferrer"><S.YoutubeImg src={Youtube} alt="aaa"/></a>
+                                </S.DivVideo>
                                 <S.Sinopse>
                                     <S.H3>Sinopse: </S.H3>
                                     <S.SinopseP>{item.overview}</S.SinopseP>
